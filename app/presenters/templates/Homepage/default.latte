@@ -1,0 +1,44 @@
+{block title}Návštěvní kniha{/block}
+
+{block content}
+    <h1>Návštěvní kniha</h1>
+
+    {control postForm}
+
+    {ifset $replyPostInfo}
+        <div class="flash info">
+            Odpovídáte na příspěvek od "{$replyPostInfo->getName()}"<br />
+            <div class="post-text">{$replyPostInfo->getPost()|breaklines}</div>
+        </div>
+    {/ifset}
+    {if $replyId < 0}
+        <div class="flash error">Příspěvek, na který jste chtěli odpovědět neexistuje.</div>
+    {/if}
+
+    <table class="posts">
+        <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Text</th>
+            <th>Datum</th>
+            <th>Odpovědět</th>
+        </tr>
+        </thead>
+        <tbody n:foreach="$posts as $post">
+        {if !is_null($post->getReplyTo())}
+            <tr n:class="$iterator->isOdd() ? odd, reply-to-head, reply-to">
+                <td colspan="4">
+                    <strong>Odpověď na "{$post->getReplyTo()->getName()}"</strong><br />
+                    <div class="post-text">{$post->getReplyTo()->getPost()|breaklines}</div>
+                </td>
+            </tr>
+        {/if}
+        <tr n:class="$iterator->isOdd() ? odd, !is_null($post->getReplyTo()) ? reply-to">
+            <td class="post-name">{$post->getName()}</td>
+            <td class="post-text">{$post->getPost()|breaklines}</td>
+            <td class="post-date">{$post->getDatetime()|date:'d.m.Y H:i'}</td>
+            <td class="post-reply"><a n:href="Homepage:default $post->getId()">Odpovědět</a></td>
+        </tr>
+        </tbody>
+    </table>
+{/block}

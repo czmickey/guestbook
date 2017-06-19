@@ -1,0 +1,4 @@
+app/config/config.local.neon
+.idea/
+/vendor/
+/www/adminer.php

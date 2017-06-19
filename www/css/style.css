@@ -1,0 +1,72 @@
+body {
+    width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table:first-child {
+    margin-bottom: 30px;
+}
+
+table.posts th {
+    background-color: #999;
+}
+
+table.posts td, table.posts th {
+    padding: 5px;
+}
+
+tr.reply-to-head td {
+    padding-left: 20px;
+    font-style: italic;
+}
+
+td.post-date, td.post-reply {
+    text-align: center;
+}
+
+td.post-text {
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+div.post-text {
+    max-width: 850px;
+    word-wrap: break-word;
+}
+
+table.posts tr.odd td {
+    background-color: #eee;
+}
+
+.flash {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.flash.success {
+    color: #fff;
+    background-color: #1A7E1E;
+    border: 1px solid #003300;
+}
+
+.flash.error {
+    color: #fff;
+    background-color: #cc0000;
+    border: 1px solid #FF0000;
+}
+
+.flash.info {
+    color: #fff;
+    background-color: #328ADC;
+    border: 1px solid #000099;
+}
