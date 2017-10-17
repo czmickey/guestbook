@@ -1,4 +1,4 @@
 Guestbook
 =================
 
-Quick sample project for presentation of my basic skills
+Basic guestbook including responses to comments.
